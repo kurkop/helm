@@ -19,11 +19,7 @@ RUN apk add --no-cache ca-certificates \
     chmod +x /usr/bin/helm3 && \
     rm -rf linux-amd64 && \
     # Init version 2 helm:
-    helm repo list && \
-    helm repo add "stable" "https://charts.helm.sh/stable" && \
-    helm repo add "common" https://charts.helm.sh/incubator && \
-    helm repo update && \
-    helm init --client-only
+    helm init --skip-repos --client-only
 
 ENV PYTHONPATH "/usr/lib/python3.8/site-packages/"
 
